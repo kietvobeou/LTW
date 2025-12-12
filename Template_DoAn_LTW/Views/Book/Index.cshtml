@@ -1,0 +1,96 @@
+﻿@model List<Sach>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+}
+
+<section class="products">
+    <h2>Sản phẩm</h2>
+
+    <div class="product-grid">
+        @foreach (var x in Model)
+        {
+            <article class="product-card">
+                <a href="@Url.Action("ChiTiet", "Sach", new { id = x.MaSach })" style="text-decoration: none">
+                    <div class="thumb">
+                        <img src="~/Content/HinhAnh/@x.HinhAnh" alt="@x.TenSach" />
+
+                        <div class="quick-actions">
+                            <a href="@Url.Action("ChiTiet", "Sach", new { id = x.MaSach })" class="action-btn" title="Xem chi tiết">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                            <a href="#" class="action-btn add-to-wishlist" title="Thêm vào yêu thích" data-id="@x.MaSach">
+                                <i class="far fa-heart"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <h4 class="title">@x.TenSach</h4>
+
+                    <div class="price">
+                        <span class="current-price">@string.Format("{0:#,##0}", x.Gia)đ</span>
+                    </div>
+                </a>
+
+                <button class="btn add-to-cart" data-id="@x.MaSach">
+                    <i class="fas fa-shopping-cart"></i> Thêm vào giỏ
+                </button>
+            </article>
+        }
+    </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.addEventListener('click', function() {
+            const productId = this.getAttribute('data-id');
+            const originalHTML = this.innerHTML;
+            this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Đang thêm...';
+            this.disabled = true;
+            setTimeout(() => {
+                this.innerHTML = '<i class="fas fa-check"></i> Đã thêm';
+                this.classList.add('success');
+                setTimeout(() => {
+                    this.innerHTML = originalHTML;
+                    this.classList.remove('success');
+                    this.disabled = false;
+                }, 2000);
+            }, 800);
+        });
+    });
+
+    document.querySelectorAll('.add-to-wishlist').forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            const heartIcon = this.querySelector('i');
+            if (heartIcon.classList.contains('far')) {
+                heartIcon.classList.remove('far');
+                heartIcon.classList.add('fas');
+                heartIcon.style.color = '#e74c3c';
+            } else {
+                heartIcon.classList.remove('fas');
+                heartIcon.classList.add('far');
+                heartIcon.style.color = '';
+            }
+        });
+    });
+
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+    document.querySelectorAll('.product-card').forEach(card => {
+        observer.observe(card);
+    });
+});
+</script>

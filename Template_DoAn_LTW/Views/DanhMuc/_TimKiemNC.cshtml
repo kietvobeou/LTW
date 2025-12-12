@@ -1,0 +1,42 @@
+﻿
+@model List<DanhMuc>
+
+<form action="/Book/TimKiem/" method="get" class="row g-3">
+    <div class="col-12 col-md-12">
+        <label for="kw" class="form-label">Từ khóa</label>
+        <input type="text" class="form-control" id="kw" name="kw" placeholder="Từ khóa...">
+    </div>
+    <div class="col-12 col-md-12">
+        <label for="chude" class="form-label">Chủ đề</label>
+        <select id="chude" name="chude" class="form-select">
+            <option value="" selected>-- Chọn thể loại --</option>
+            @foreach (var tl in Model)
+            {
+                <option value="@tl.MaDanhMuc">@tl.TenDanhMuc</option>
+            }
+        </select>
+    </div>
+    <div class="col-12 col-md-12">
+        <span class="form-label d-block mb-1">Giá</span>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="0-50000" id="g1" name="gia">
+            <label class="form-check-label" for="g1">0–50.000 VNĐ</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="50000-100000" id="g2" name="gia">
+            <label class="form-check-label" for="g2">50.000–100.000 VNĐ</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="100000-150000" id="g3" name="gia">
+            <label class="form-check-label" for="g3">100.000–150.000 VNĐ</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value=">150000" id="g4" name="gia">
+            <label class="form-check-label" for="g4">Lớn hơn 150.000 VNĐ</label>
+        </div>
+    </div>
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary px-4">Tìm kiếm</button>
+        <button type="reset" class="btn btn btn-danger">Xóa</button>
+    </div>
+</form>

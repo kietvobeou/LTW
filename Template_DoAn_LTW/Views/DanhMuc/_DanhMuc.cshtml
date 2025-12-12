@@ -1,0 +1,16 @@
+﻿<aside class="sidebar">
+    <h3><i class="fas fa-list"></i> Danh mục sách</h3>
+    @Html.Action("_DanhMucTheLoai", "DanhMuc")
+
+    <div class="section-separator"></div>
+
+    <h3><i class="fas fa-building"></i> Nhà xuất bản</h3>
+    @Html.Action("_DanhMucNXB", "DanhMuc")
+
+    <div class="section-separator"></div>
+
+    <h3><i class="fas fa-search"></i> Tìm kiếm nâng cao</h3>
+    <div class="search-form-advanced">
+        @Html.Action("_TimKiemNC", "DanhMuc")
+    </div>
+</aside>

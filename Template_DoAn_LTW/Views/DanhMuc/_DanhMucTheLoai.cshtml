@@ -1,0 +1,9 @@
+﻿
+@model List<DanhMuc>
+<ul class="category-list">
+    <li><a href="@Url.Action("Index","Book")">Tất cả</a></li>
+    @foreach (var th in Model)
+    {
+        <li><a href="@Url.Action("LocSP", "Book", new {idloc=th.MaDanhMuc,type=1})" class="text-decoration-none">@th.TenDanhMuc</a></li>
+    }
+</ul>

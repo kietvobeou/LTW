@@ -1,0 +1,8 @@
+﻿
+@model List<NhaXuatBan>
+<ul class="category-list">
+    @foreach (var nxb in Model)
+    {
+        <li><a href="@Url.Action("LocSP", "Book", new {idloc=nxb.MaNXB,type=2})" class="text-decoration-none">@nxb.TenNXB</a></li>
+    }
+</ul>
