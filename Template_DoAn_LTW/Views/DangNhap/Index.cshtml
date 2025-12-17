@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+}
+
+<div class="container">
+    <div class="login-container nt-4" style="width: 400px; margin: auto">
+        <div class="card shadow-lg p-3">
+            <h3 class="card-title text-center fw-bold text-primary mb-0">Đăng nhập</h3>
+            @using (Html.BeginForm("XulyFormDN", "DangNhap", new { url = ViewBag.Url }, FormMethod.Post))
+            {
+                <div class="mb-3">
+                    <label for="loginEmail" class="form-label">Email</label>
+                    <input type="email" name="email" class="form-control" id="loginEmail" required>
+                </div>
+                <div class="mb-3">
+                    <label for="loginPassword" class="form-label">Mật Khẩu</label>
+                    <input type="password" name="password" class="form-control" id="loginPassword" required>
+                </div>
+                <div class="mb-3">
+                    <button type="submit" style="margin: 0;" class="btn btn-primary w-100 mb-3">ĐĂNG NHẬP</button>
+                    <p class="text-center">
+                        Chưa có tài khoản? <a href="LTW_register.html" class="text-decoration-none fw-bold">Đăng ký ngay</a>
+                    </p>
+                </div>
+            }
+        </div>
+    </div>
+</div>
