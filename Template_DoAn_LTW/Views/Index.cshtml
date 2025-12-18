@@ -1,0 +1,550 @@
+﻿@model List<Sach>
+@{
+    ViewBag.Title = "Trang Chủ";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+}
+
+<!-- Banner Section -->
+<section class="banner-section">
+    <div class="banner-container">
+        <div class="banner-image">
+            <div class="banner-overlay">
+                <div class="banner-content">
+                    <h1 class="banner-title">Chào mừng đến với BookStore</h1>
+                    <p class="banner-subtitle">Nơi khơi nguồn tri thức, thắp sáng tâm hồn</p>
+                    <p class="banner-quote">"Sách là nguồn cảm hứng bất tận, mỗi trang sách là một hành trình mới"</p>
+                    <a href="#books-section" class="btn btn-explore">
+                        <i class="fas fa-book-open"></i> Khám phá ngay
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Benefits Section -->
+<section class="benefits-section">
+    <div class="container">
+        <h2 class="section-title">Vì Sao Nên Đọc Sách?</h2>
+        <p class="section-subtitle">Khám phá những lợi ích tuyệt vời mà sách mang lại</p>
+
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3 class="benefit-title">Phát Triển Trí Tuệ</h3>
+                <p class="benefit-description">
+                    Đọc sách giúp mở rộng kiến thức, cải thiện trí nhớ và tăng cường khả năng tư duy phản biện.
+                </p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h3 class="benefit-title">Giảm Căng Thẳng</h3>
+                <p class="benefit-description">
+                    Chỉ 6 phút đọc sách mỗi ngày có thể giảm 68% căng thẳng, giúp tâm trí thư giãn và bình yên.
+                </p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-language"></i>
+                </div>
+                <h3 class="benefit-title">Cải Thiện Ngôn Ngữ</h3>
+                <p class="benefit-description">
+                    Mở rộng vốn từ vựng, nâng cao khả năng diễn đạt và giao tiếp hiệu quả trong mọi tình huống.
+                </p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <h3 class="benefit-title">Kích Thích Sáng Tạo</h3>
+                <p class="benefit-description">
+                    Sách mở ra thế giới tưởng tượng phong phú, thúc đẩy tư duy sáng tạo và đổi mới.
+                </p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3 class="benefit-title">Hiểu Biết Xã Hội</h3>
+                <p class="benefit-description">
+                    Mở rộng hiểu biết về văn hóa, lịch sử và con người, từ đó đồng cảm và kết nối tốt hơn.
+                </p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3 class="benefit-title">Phát Triển Cá Nhân</h3>
+                <p class="benefit-description">
+                    Mỗi cuốn sách là một bài học quý giá, giúp hoàn thiện bản thân và định hướng tương lai.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Random Books Section -->
+<section id="books-section" class="books-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Sách Đề Xuất</h2>
+            <p class="section-subtitle">Khám phá những tựa sách hay được chọn lọc</p>
+        </div>
+
+        <div class="books-grid">
+            @if (Model != null && Model.Any())
+            {
+                foreach (var sach in Model)
+                {
+                    <div class="book-card">
+                        <div class="book-image">
+                            <img src="~/Content/HinhAnh/@sach.HinhAnh"
+                                 alt="@sach.TenSach"
+                                 onerror="this.src='@Url.Content("~/Images/default-book.jpg")'">
+                            <div class="book-overlay">
+                                <a href="@Url.Action("Index", "Book")" class="btn-quick-view">
+                                    <i class="fas fa-eye"></i> Xem nhanh
+                                </a>
+                            </div>
+                        </div>
+                        <div class="book-info">
+                            <h3 class="book-title">@sach.TenSach</h3>
+                            <p class="book-author">Tác giả: @sach.TacGia</p>
+                            <div class="book-footer">
+                                <span class="book-price">@sach.Gia.ToString("N0") đ</span>
+                                <a href="@Url.Action("Index", "Book")" class="btn-add-to-cart">
+                                    <i class="fas fa-cart-plus"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="no-books">
+                    <p>Không có sách để hiển thị</p>
+                </div>
+            }
+        </div>
+
+        <div class="text-center mt-4">
+            <a href="@Url.Action("Index", "Book")" class="btn btn-view-all">
+                <i class="fas fa-book"></i> Xem tất cả sách
+            </a>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Banner Section */
+    .banner-section {
+        margin-bottom: 3rem;
+    }
+
+    .banner-container {
+        position: relative;
+        height: 500px;
+        overflow: hidden;
+        border-radius: 15px;
+    }
+
+    .banner-image {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.5s ease;
+    }
+
+    .banner-container:hover .banner-image {
+        transform: scale(1.05);
+    }
+
+    .banner-overlay {
+        text-align: center;
+        color: white;
+        padding: 2rem;
+        max-width: 800px;
+        animation: fadeInUp 1s ease-out;
+    }
+
+    .banner-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .banner-subtitle {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        opacity: 0.9;
+    }
+
+    .banner-quote {
+        font-style: italic;
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        opacity: 0.8;
+        border-left: 3px solid #c19a6b;
+        padding-left: 1rem;
+    }
+
+    .btn-explore {
+        background: #c19a6b;
+        color: white;
+        padding: 1rem 2.5rem;
+        border-radius: 50px;
+        font-weight: 600;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.8rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(193, 154, 107, 0.3);
+    }
+
+        .btn-explore:hover {
+            background: #a87c52;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(193, 154, 107, 0.4);
+            color: white;
+        }
+
+    /* Benefits Section */
+    .benefits-section {
+        background: linear-gradient(135deg, #f9f5f0 0%, #f0e6d6 100%);
+        padding: 5rem 0;
+        margin-bottom: 3rem;
+    }
+
+    .section-title {
+        text-align: center;
+        font-family: 'Playfair Display', serif;
+        font-size: 2.5rem;
+        color: #2c3e50;
+        margin-bottom: 1rem;
+        position: relative;
+    }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: #c19a6b;
+            margin: 1rem auto;
+        }
+
+    .section-subtitle {
+        text-align: center;
+        color: #7f8c8d;
+        font-size: 1.2rem;
+        margin-bottom: 3rem;
+    }
+
+    .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .benefit-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 15px;
+        text-align: center;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        border: 1px solid rgba(193, 154, 107, 0.1);
+    }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            border-color: #c19a6b;
+        }
+
+    .benefit-icon {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, #c19a6b 0%, #e6c9a6 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+    }
+
+        .benefit-icon i {
+            font-size: 2rem;
+            color: white;
+        }
+
+    .benefit-title {
+        font-size: 1.3rem;
+        color: #2c3e50;
+        margin-bottom: 1rem;
+        font-weight: 600;
+    }
+
+    .benefit-description {
+        color: #666;
+        line-height: 1.6;
+        font-size: 0.95rem;
+    }
+
+    /* Books Section */
+    .books-section {
+        padding: 4rem 0;
+    }
+
+    .section-header {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    .books-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-bottom: 3rem;
+    }
+
+    .book-card {
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        transition: all 0.3s ease;
+        border: 1px solid #eee;
+    }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+    .book-image {
+        position: relative;
+        height: 300px;
+        overflow: hidden;
+    }
+
+        .book-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+    .book-card:hover .book-image img {
+        transform: scale(1.05);
+    }
+
+    .book-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0,0,0,0.7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .book-card:hover .book-overlay {
+        opacity: 1;
+    }
+
+    .btn-quick-view {
+        background: #c19a6b;
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border-radius: 25px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: 500;
+    }
+
+        .btn-quick-view:hover {
+            background: #a87c52;
+            color: white;
+        }
+
+    .book-info {
+        padding: 1.5rem;
+    }
+
+    .book-title {
+        font-size: 1.1rem;
+        color: #2c3e50;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        height: 3rem;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+
+    .book-author {
+        color: #7f8c8d;
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+
+    .book-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .book-price {
+        color: #c19a6b;
+        font-weight: 700;
+        font-size: 1.2rem;
+    }
+
+    .btn-add-to-cart {
+        width: 40px;
+        height: 40px;
+        background: #f8f9fa;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #c19a6b;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+        .btn-add-to-cart:hover {
+            background: #c19a6b;
+            color: white;
+            transform: rotate(15deg);
+        }
+
+    .btn-view-all {
+        background: #2c3e50;
+        color: white;
+        padding: 1rem 3rem;
+        border-radius: 50px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.8rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+        .btn-view-all:hover {
+            background: #1a252f;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(44, 62, 80, 0.3);
+        }
+
+    .no-books {
+        grid-column: 1 / -1;
+        text-align: center;
+        padding: 3rem;
+        color: #7f8c8d;
+    }
+
+    /* Animations */
+    @@keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Responsive */
+    @@media (max-width: 768px) {
+        .banner-container {
+            height: 400px;
+        }
+
+        .banner-title {
+            font-size: 2.5rem;
+        }
+
+        .banner-subtitle {
+            font-size: 1.2rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+        }
+
+        .benefits-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .books-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @@media (max-width: 576px) {
+        .banner-container {
+            height: 300px;
+        }
+
+        .banner-title {
+            font-size: 2rem;
+        }
+
+        .banner-subtitle {
+            font-size: 1rem;
+        }
+
+        .books-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const benefitCards = document.querySelectorAll('.benefit-card');
+
+        benefitCards.forEach(card => {
+            card.addEventListener('mouseenter', function () {
+                this.style.transform = 'translateY(-10px)';
+            });
+
+            card.addEventListener('mouseleave', function () {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    });
+</script>

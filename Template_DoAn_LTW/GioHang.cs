@@ -14,6 +14,12 @@ namespace Template_DoAn_LTW
     
     public partial class GioHang
     {
+        public GioHang(int maSach, int soluong)
+        {
+            MaSach = maSach;
+            SoLuong = soluong;
+        }
+
         public int MaGioHang { get; set; }
         public Nullable<int> MaND { get; set; }
         public Nullable<int> MaSach { get; set; }
@@ -22,5 +28,6 @@ namespace Template_DoAn_LTW
     
         public virtual NguoiDung NguoiDung { get; set; }
         public virtual Sach Sach { get; set; }
+        public int ThanhTien { get; internal set; }
     }
 }

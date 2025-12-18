@@ -134,7 +134,9 @@
     </Compile>
     <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\DanhMucController.cs" />
+    <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TrangChuController.cs" />
     <Compile Include="DanhMuc.cs">
       <DependentUpon>QLSach.tt</DependentUpon>
     </Compile>
@@ -147,6 +149,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\GioHangViewModel.cs" />
     <Compile Include="NguoiDung.cs">
       <DependentUpon>QLSach.tt</DependentUpon>
     </Compile>
@@ -186,6 +189,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include=".gitignore.txt" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -228,6 +232,7 @@
     <Content Include="Content\HinhAnh\1984.jpg" />
     <Content Include="Content\HinhAnh\adam_smith.jpg" />
     <Content Include="Content\HinhAnh\chipheo.jpg" />
+    <Content Include="Content\HinhAnh\default-image.jpg" />
     <Content Include="Content\HinhAnh\dnt.jpg" />
     <Content Include="Content\HinhAnh\einstein.jpg" />
     <Content Include="Content\HinhAnh\hp1.jpg" />
@@ -320,10 +325,12 @@
     <Content Include="Views\DanhMuc\_DanhMucTheLoai.cshtml" />
     <Content Include="Views\DanhMuc\_DanhMucNXB.cshtml" />
     <Content Include="Views\DanhMuc\_TimKiemNC.cshtml" />
+    <Content Include="Views\GioHang\Index.cshtml" />
+    <Content Include="Views\Index.cshtml" />
+    <Content Include="Views\TrangChu\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
