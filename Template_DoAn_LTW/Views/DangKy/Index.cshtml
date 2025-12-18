@@ -1,0 +1,87 @@
+﻿@{
+    ViewBag.Title = "Đăng ký";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+}
+
+<div class="container">
+    <div class="login-container mt-5" style="width: 450px; margin:auto">
+        <div class="card shadow-lg p-4">
+
+            <h3 class="text-center fw-bold text-primary mb-3">Đăng ký tài khoản</h3>
+
+            @if (ViewBag.Error != null)
+            {
+                <div class="alert alert-danger text-center">
+                    @ViewBag.Error
+                </div>
+            }
+
+            @using (Html.BeginForm("Index", "DangKy", FormMethod.Post,
+                new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <!-- Avatar -->
+                <div class="text-center mb-3">
+                    <img id="avatarPreview"
+                         src="~/Content/HinhAnh/default-avatar.jpg"
+                         class="rounded-circle border"
+                         style="width:120px;height:120px;object-fit:cover" />
+                    <input type="file"
+                           name="AnhDaiDienUpload"
+                           class="form-control mt-2"
+                           accept="image/*"
+                           onchange="previewAvatar(this)" />
+                </div>
+
+                <div class="mb-3">
+                    <label>Họ tên</label>
+                    <input type="text" name="HoTen" class="form-control" required />
+                </div>
+
+                <div class="mb-3">
+                    <label>Email</label>
+                    <input type="email" name="Email" class="form-control" required />
+                </div>
+
+                <div class="mb-3">
+                    <label>Mật khẩu</label>
+                    <input type="password" name="MatKhau" class="form-control" required />
+                </div>
+
+                <div class="mb-3">
+                    <label>Số điện thoại</label>
+                    <input type="text" name="SDT" class="form-control" />
+                </div>
+
+                <div class="mb-3">
+                    <label>Địa chỉ</label>
+                    <input type="text" name="DiaChi" class="form-control" />
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100 fw-bold">
+                    ĐĂNG KÝ
+                </button>
+
+                <p class="text-center mt-3">
+                    Đã có tài khoản?
+                    <a href="@Url.Action("Index","DangNhap")" class="fw-bold">
+                        Đăng nhập
+                    </a>
+                </p>
+            }
+        </div>
+    </div>
+</div>
+
+<script>
+    function previewAvatar(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                document.getElementById("avatarPreview").src = e.target.result;
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>

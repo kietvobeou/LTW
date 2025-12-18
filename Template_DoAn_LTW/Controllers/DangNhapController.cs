@@ -14,10 +14,9 @@ namespace Template_DoAn_LTW.Controllers
         // GET: DangNhap
         public ActionResult Index()
         {
-            ViewBag.Url = Request.UrlReferrer?.ToString() ?? "/";
+            ViewBag.Url = Url.Action("Index", "Book");
             return View();
         }
-
         [HttpPost]
         public ActionResult XulyFormDN(FormCollection form, string url)
         {
@@ -25,23 +24,22 @@ namespace Template_DoAn_LTW.Controllers
             string pass = form["password"];
 
             var kq = ql.NguoiDungs
-                .Where(nd => nd.Email == email && nd.MatKhau == pass)
-                .FirstOrDefault();
+                .FirstOrDefault(nd => nd.Email == email && nd.MatKhau == pass);
 
             if (kq != null)
             {
                 FormsAuthentication.SetAuthCookie(kq.Email, true);
 
-                Session["TenKH"] = kq.HoTen;  // Tên hiển thị
-                Session["MaKH"] = kq.MaND;    // ID người dùng
+                Session["HoTen"] = kq.HoTen;
+                Session["MaND"] = kq.MaND;
+                Session["AnhDaiDien"] = kq.AnhDaiDien;
 
-                return Redirect(url);
+                return Redirect(url ?? Url.Action("Index", "Book"));
             }
-            else
-            {
-                ViewBag.Error = "Tài khoản hoặc mật khẩu không đúng";
-                return View("Index");
-            }
+
+            ViewBag.Error = "Tài khoản hoặc mật khẩu không đúng";
+            ViewBag.Url = Url.Action("Index", "Book");
+            return View("Index");
         }
 
         public ActionResult DangXuat()

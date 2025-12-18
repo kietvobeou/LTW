@@ -70,26 +70,44 @@
                     </a>
 
                     <!-- Tài khoản -->
-                    @if (Session["TenKH"] != null)
+                    @if (Session["HoTen"] != null)
                     {
-                        <a href="@Url.Action("HoSo", "TaiKhoan")" class="text-decoration-none d-flex align-items-center gap-2 text-white">
-                            <img src="~/Content/HinhAnh/@(Session["AnhDaiDien"] ?? "default-avatar.jpg")"
+                        string avatar = Session["AnhDaiDien"] as string;
+
+                        if (string.IsNullOrEmpty(avatar))
+                        {
+                            avatar = Url.Content("~/Content/HinhAnh/default-avatar.jpg");
+                        }
+                        else if (!avatar.StartsWith("http"))
+                        {
+                            avatar = Url.Content("~/Content/HinhAnh/" + avatar);
+                        }
+
+                        <a href="@Url.Action("HoSo", "TaiKhoan")"
+                           class="text-decoration-none d-flex align-items-center gap-2 text-white">
+
+                            <img src="@avatar"
                                  alt="Avatar"
                                  class="rounded-circle border border-warning border-3"
-                                 style="width: 40px; height: 40px; object-fit: cover;" />
-                            <span class="fw-bold">@Session["TenKH"]</span>
+                                 style="width:40px;height:40px;object-fit:cover;" />
+
+                            <span class="fw-bold">@Session["HoTen"]</span>
                         </a>
 
-                        <a href="@Url.Action("DangXuat", "DangNhap")" class="btn btn-outline-danger rounded-pill px-4 py-2 fw-bold">
+                        <a href="@Url.Action("DangXuat", "DangNhap")"
+                           class="btn btn-outline-danger rounded-pill px-4 py-2 fw-bold">
                             <i class="fas fa-sign-out-alt me-2"></i> Đăng xuất
                         </a>
                     }
                     else
                     {
-                        <a href="@Url.Action("Index", "DangNhap")" class="btn btn-warning rounded-pill px-4 py-2 fw-bold shadow">
+                        <a href="@Url.Action("Index", "DangNhap")"
+                           class="btn btn-warning rounded-pill px-4 py-2 fw-bold shadow">
                             <i class="fas fa-user me-2"></i> Đăng Nhập
                         </a>
                     }
+
+
                 </div>
             </div>
         </div>

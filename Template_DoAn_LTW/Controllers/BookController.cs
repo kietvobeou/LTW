@@ -16,9 +16,20 @@ namespace Template_DoAn_LTW.Controllers
         }
         public ActionResult ChiTietSP(int masp)
         {
-            var sach = ql.Saches.FirstOrDefault(s => s.MaSach == masp);
-            if (sach == null) return HttpNotFound();
+            // ===== DEBUG BẮT BUỘC =====
+            System.Diagnostics.Debug.WriteLine("MASP (Route) = " + masp);
 
+            // ===== LẤY SÁCH =====
+            var sach = ql.Saches.FirstOrDefault(s => s.MaSach == masp);
+            if (sach == null)
+            {
+                System.Diagnostics.Debug.WriteLine("KHÔNG TÌM THẤY SÁCH");
+                return HttpNotFound();
+            }
+
+            System.Diagnostics.Debug.WriteLine("SÁCH: " + sach.MaSach);
+
+            // ===== SÁCH LIÊN QUAN =====
             ViewBag.SachLienQuan_DanhMuc = ql.Saches
                 .Where(s => s.MaDanhMuc == sach.MaDanhMuc && s.MaSach != masp)
                 .Take(8)
@@ -29,48 +40,46 @@ namespace Template_DoAn_LTW.Controllers
                 .Take(8)
                 .ToList();
 
-            ViewBag.DanhSachNguoiBinhLuan = ql.BinhLuans
-                .Where(b => b.MaSach == masp)
-                .Select(b => new {
-                    BinhLuan = b,
-                    NguoiDung = ql.NguoiDungs.FirstOrDefault(nd => nd.MaND == b.MaND)
-                })
-                .OrderByDescending(x => x.BinhLuan.NgayBL)
+            var danhSachBinhLuan = ql.BinhLuans
+                .Include("NguoiDung")   
+                .Where(b => b.MaSach == sach.MaSach) 
+                .OrderByDescending(b => b.NgayBL)
                 .ToList();
+
+            System.Diagnostics.Debug.WriteLine("SỐ BÌNH LUẬN = " + danhSachBinhLuan.Count);
+
+            ViewBag.DanhSachBinhLuan = danhSachBinhLuan;
+            ViewBag.SoLuongDanhGia = danhSachBinhLuan.Count;
 
             return View(sach);
         }
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize] // Bắt buộc phải đăng nhập mới được gửi
+        [Authorize]
         public ActionResult ThemBinhLuan(int MaSach, int SoSao, string NoiDung)
         {
-            if (ModelState.IsValid)
+            if (Session["MaKH"] == null)
             {
-                // Lấy MaND của người dùng hiện tại (từ tài khoản đăng nhập)
-                var nguoiDung = ql.NguoiDungs.FirstOrDefault(nd => nd.Email == User.Identity.Name);
-                if (nguoiDung == null)
-                {
-                    return RedirectToAction("DangNhap", "TaiKhoan");
-                }
-
-                var binhLuan = new BinhLuan
-                {
-                    MaND = nguoiDung.MaND,
-                    MaSach = MaSach,
-                    SoSao = SoSao,
-                    NoiDung = NoiDung,
-                    NgayBL = DateTime.Today // Vì cột là DATE
-                };
-
-                ql.BinhLuans.Add(binhLuan);
-                ql.SaveChanges();
-
-                // Sau khi thêm thành công, quay lại trang chi tiết sách
-                return RedirectToAction("ChiTietSP", new { masp = MaSach });
+                TempData["Error"] = "Bạn cần đăng nhập để bình luận.";
+                return RedirectToAction("Index", "DangNhap");
             }
 
-            // Nếu có lỗi, quay lại trang chi tiết (có thể thêm TempData thông báo lỗi)
+            int maND = (int)Session["MaKH"];
+
+            BinhLuan bl = new BinhLuan
+            {
+                MaSach = MaSach,
+                MaND = maND,
+                SoSao = SoSao,
+                NoiDung = NoiDung,
+                NgayBL = DateTime.Now
+            };
+
+            ql.BinhLuans.Add(bl);
+            ql.SaveChanges();
+
             return RedirectToAction("ChiTietSP", new { masp = MaSach });
         }
         public ActionResult LocSP(int idloc, int type)
