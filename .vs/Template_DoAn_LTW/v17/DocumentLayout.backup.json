@@ -7,6 +7,10 @@
       "RelativeMoniker": "D:0:0:{351DDE82-C58F-4BBF-A600-14A277611841}|Template_DoAn_LTW\\Template_DoAn_LTW.csproj|solutionrelative:template_doan_ltw\\.gitignore.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{351DDE82-C58F-4BBF-A600-14A277611841}|Template_DoAn_LTW\\Template_DoAn_LTW.csproj|C:\\Users\\rober\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\Template_DoAn_LTW\\template_doan_ltw\\controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{351DDE82-C58F-4BBF-A600-14A277611841}|Template_DoAn_LTW\\Template_DoAn_LTW.csproj|solutionrelative:template_doan_ltw\\controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{351DDE82-C58F-4BBF-A600-14A277611841}|Template_DoAn_LTW\\Template_DoAn_LTW.csproj|c:\\users\\rober\\onedrive\\ta\u0300i li\u00EA\u0323u\\template_doan_ltw\\template_doan_ltw\\views\\book\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{351DDE82-C58F-4BBF-A600-14A277611841}|Template_DoAn_LTW\\Template_DoAn_LTW.csproj|solutionrelative:template_doan_ltw\\views\\book\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -53,10 +57,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{351DDE82-C58F-4BBF-A600-14A277611841}|Template_DoAn_LTW\\Template_DoAn_LTW.csproj|C:\\Users\\rober\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\Template_DoAn_LTW\\template_doan_ltw\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{351DDE82-C58F-4BBF-A600-14A277611841}|Template_DoAn_LTW\\Template_DoAn_LTW.csproj|solutionrelative:template_doan_ltw\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{351DDE82-C58F-4BBF-A600-14A277611841}|Template_DoAn_LTW\\Template_DoAn_LTW.csproj|C:\\Users\\rober\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\Template_DoAn_LTW\\template_doan_ltw\\controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{351DDE82-C58F-4BBF-A600-14A277611841}|Template_DoAn_LTW\\Template_DoAn_LTW.csproj|solutionrelative:template_doan_ltw\\controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{351DDE82-C58F-4BBF-A600-14A277611841}|Template_DoAn_LTW\\Template_DoAn_LTW.csproj|C:\\Users\\rober\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\Template_DoAn_LTW\\template_doan_ltw\\controllers\\giohangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -136,14 +136,14 @@
               "RelativeDocumentMoniker": "Template_DoAn_LTW\\.gitignore.txt",
               "ToolTip": "C:\\Users\\rober\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\Template_DoAn_LTW\\Template_DoAn_LTW\\.gitignore.txt",
               "RelativeToolTip": "Template_DoAn_LTW\\.gitignore.txt",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
               "WhenOpened": "2025-12-18T13:41:35.32Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\rober\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\Template_DoAn_LTW\\Template_DoAn_LTW\\Views\\TrangChu\\Index.cshtml",
               "RelativeDocumentMoniker": "Template_DoAn_LTW\\Views\\TrangChu\\Index.cshtml",
@@ -156,7 +156,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "TrangChuController.cs",
               "DocumentMoniker": "C:\\Users\\rober\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\Template_DoAn_LTW\\Template_DoAn_LTW\\Controllers\\TrangChuController.cs",
               "RelativeDocumentMoniker": "Template_DoAn_LTW\\Controllers\\TrangChuController.cs",
@@ -169,7 +169,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "GioHangViewModel.cs",
               "DocumentMoniker": "C:\\Users\\rober\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\Template_DoAn_LTW\\Template_DoAn_LTW\\Models\\GioHangViewModel.cs",
               "RelativeDocumentMoniker": "Template_DoAn_LTW\\Models\\GioHangViewModel.cs",
@@ -182,7 +182,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "Contact.cshtml",
               "DocumentMoniker": "C:\\Users\\rober\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\Template_DoAn_LTW\\Template_DoAn_LTW\\Views\\Home\\Contact.cshtml",
               "RelativeDocumentMoniker": "Template_DoAn_LTW\\Views\\Home\\Contact.cshtml",
@@ -208,7 +208,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\rober\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\Template_DoAn_LTW\\Template_DoAn_LTW\\Views\\GioHang\\Index.cshtml",
               "RelativeDocumentMoniker": "Template_DoAn_LTW\\Views\\GioHang\\Index.cshtml",
@@ -282,7 +282,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\rober\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\Template_DoAn_LTW\\Template_DoAn_LTW\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "Template_DoAn_LTW\\Views\\Home\\Index.cshtml",
@@ -295,7 +295,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\rober\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\Template_DoAn_LTW\\Template_DoAn_LTW\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Template_DoAn_LTW\\Views\\Shared\\_Layout.cshtml",
@@ -320,7 +320,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "Error.cshtml",
               "DocumentMoniker": "C:\\Users\\rober\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\Template_DoAn_LTW\\Template_DoAn_LTW\\Views\\Shared\\Error.cshtml",
               "RelativeDocumentMoniker": "Template_DoAn_LTW\\Views\\Shared\\Error.cshtml",
@@ -411,7 +411,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "QLSach.edmx [Diagram1]",
               "DocumentMoniker": "C:\\Users\\rober\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\Template_DoAn_LTW\\Template_DoAn_LTW\\QLSach.edmx",
               "RelativeDocumentMoniker": "Template_DoAn_LTW\\QLSach.edmx",
@@ -435,7 +435,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "RouteConfig.cs",
               "DocumentMoniker": "C:\\Users\\rober\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\Template_DoAn_LTW\\Template_DoAn_LTW\\App_Start\\RouteConfig.cs",
               "RelativeDocumentMoniker": "Template_DoAn_LTW\\App_Start\\RouteConfig.cs",
@@ -448,7 +448,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\rober\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\Template_DoAn_LTW\\Template_DoAn_LTW\\Views\\Book\\Index.cshtml",
               "RelativeDocumentMoniker": "Template_DoAn_LTW\\Views\\Book\\Index.cshtml",
@@ -461,13 +461,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 1,
               "Title": "BookController.cs",
               "DocumentMoniker": "C:\\Users\\rober\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\Template_DoAn_LTW\\Template_DoAn_LTW\\Controllers\\BookController.cs",
               "RelativeDocumentMoniker": "Template_DoAn_LTW\\Controllers\\BookController.cs",
               "ToolTip": "C:\\Users\\rober\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\Template_DoAn_LTW\\Template_DoAn_LTW\\Controllers\\BookController.cs",
               "RelativeToolTip": "Template_DoAn_LTW\\Controllers\\BookController.cs",
-              "ViewState": "AgIAAD4AAAAAAAAAAAAAADQAAABAAAAAAAAAAA==",
+              "ViewState": "AgIAACwAAAAAAAAAAAAAAD4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-11T13:36:19.686Z",
               "EditorCaption": ""
@@ -486,7 +486,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "_NewLayout.cshtml",
               "DocumentMoniker": "C:\\Users\\rober\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\Template_DoAn_LTW\\Template_DoAn_LTW\\Views\\Shared\\_NewLayout.cshtml",
               "RelativeDocumentMoniker": "Template_DoAn_LTW\\Views\\Shared\\_NewLayout.cshtml",
